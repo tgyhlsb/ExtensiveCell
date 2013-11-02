@@ -75,7 +75,7 @@
 {
     UIView *contentView = [self viewForContainerAtIndexPath:indexPath];
     if ([self isExtendedCellIndexPath:indexPath] && contentView) {
-        return contentView.frame.origin.y + contentView.frame.size.height;
+        return 2*contentView.frame.origin.y + contentView.frame.size.height;
     } else {
         return [self heightForExtensiveCellAtIndexPath:indexPath];
     }

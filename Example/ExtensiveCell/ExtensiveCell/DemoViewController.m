@@ -41,7 +41,7 @@
 
 - (UIView *)viewForContainerAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 20, 300, 88)];
+    UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 200, 88)];
     dropDownView.backgroundColor = [UIColor redColor];
     return dropDownView;
 }

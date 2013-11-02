@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *defaultLabel;
 
+@property (weak, nonatomic) UIView *viewToDisplay;
+
 
 @end
 
@@ -35,7 +37,15 @@
 {
     self.defaultLabel.hidden = (contentView != nil);
     
-    [self.contentView addSubview:contentView];
+    self.viewToDisplay = contentView;
+}
+
+- (void)setViewToDisplay:(UIView *)viewToDisplay
+{
+    [_viewToDisplay removeFromSuperview];
+    _viewToDisplay = viewToDisplay;
+    [self.contentView addSubview:_viewToDisplay];
+    
 }
 
 

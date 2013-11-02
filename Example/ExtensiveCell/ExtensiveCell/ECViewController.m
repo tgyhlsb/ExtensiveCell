@@ -22,6 +22,8 @@
     [super viewDidLoad];
     [ExtensiveCell registerNibToTableView:self.tableView];
     [ExtensiveCellContainer registerNibToTableView:self.tableView];
+    
+    self.detailView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 88)];
 }
 
 #pragma mark Selection mecanism
@@ -71,6 +73,15 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self isExtendedCellIndexPath:indexPath] && self.detailView) {
+        return self.detailView.frame.size.height;
+    } else {
+        return MAIN_CELLS_HEIGHT;
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = [ExtensiveCell reusableIdentifier];
@@ -97,19 +108,23 @@
 {
     NSLog(@"Should extend cell at indexPath : %@", indexPath);
     
-    if (self.selectedRowIndexPath)
-    {
-        [self removeCellBelowIndexPath:self.selectedRowIndexPath];
-        if (indexPath.row > self.selectedRowIndexPath.row)
-        {
-            indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];
-        }
-    }
+    
     
     if (indexPath) {
-        if ([self isSelectedIndexPath:indexPath])
+        
+        if (self.selectedRowIndexPath)
         {
-            self.selectedRowIndexPath = nil;
+            if ([self isSelectedIndexPath:indexPath])
+            {
+                NSIndexPath *tempIndexPath = self.selectedRowIndexPath;
+                self.selectedRowIndexPath = nil;
+                [self removeCellBelowIndexPath:tempIndexPath];
+            } else {
+                [self removeCellBelowIndexPath:self.selectedRowIndexPath];
+                indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];
+                self.selectedRowIndexPath = indexPath;
+                [self insertCellBelowIndexPath:indexPath];
+            }
         } else {
             self.selectedRowIndexPath = indexPath;
             [self insertCellBelowIndexPath:indexPath];

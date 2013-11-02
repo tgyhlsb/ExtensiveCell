@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ExtensiveCell.h"
 
+#define MAIN_CELLS_HEIGHT 44
+
 @interface ECViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ECTableViewDelegate>
 
 @property (nonatomic) NSInteger numberOfRow;
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) UIView *detailView;
+
 
 @end

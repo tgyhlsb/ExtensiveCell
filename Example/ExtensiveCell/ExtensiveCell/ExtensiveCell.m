@@ -8,7 +8,6 @@
 
 #import "ExtensiveCell.h"
 
-#define REUSABLE_IDENTIFIER @"ExtensiveCell"
 
 @interface ExtensiveCell()
 
@@ -18,22 +17,11 @@
 
 @implementation ExtensiveCell
 
-+ (void)registerNibToTableView:(UITableView *)tableView
-{
-    UINib *nib = [UINib nibWithNibName:@"ExtensiveCell" bundle:nil];
-    [tableView registerNib:nib forCellReuseIdentifier:[ExtensiveCell reusableIdentifier]];
-}
-
-+ (NSString *)reusableIdentifier
-{
-    return REUSABLE_IDENTIFIER;
-}
-
 - (void)initializeWithTableViewController:(UITableViewController *)tableViewController
 {
-    if ([tableViewController conformsToProtocol:@protocol(ECTableViewDelegate)])
+    if ([tableViewController conformsToProtocol:@protocol(ExtensiveCellDelegate)])
     {
-        self.tableViewDelegate = (UITableViewController<ECTableViewDelegate> *)tableViewController;
+        self.tableViewDelegate = (UITableViewController<ExtensiveCellDelegate> *)tableViewController;
     }
 }
 

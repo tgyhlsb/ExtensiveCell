@@ -14,4 +14,6 @@
 + (NSString *)reusableIdentifier;
 + (void)registerNibToTableView:(UITableView *)tableView;
 
+- (void)addContentView:(UIView *)contentView;
+
 @end

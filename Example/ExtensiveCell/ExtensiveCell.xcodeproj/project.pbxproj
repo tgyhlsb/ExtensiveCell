@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A44C89E1825AA4C00A06444 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44C89D1825AA4C00A06444 /* DemoViewController.m */; };
 		5A85D150182526C2004B7E96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A85D14F182526C2004B7E96 /* Foundation.framework */; };
 		5A85D152182526C2004B7E96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A85D151182526C2004B7E96 /* CoreGraphics.framework */; };
 		5A85D154182526C2004B7E96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A85D153182526C2004B7E96 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		5A85D179182526C2004B7E96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A85D177182526C2004B7E96 /* InfoPlist.strings */; };
 		5A85D17B182526C2004B7E96 /* ExtensiveCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A85D17A182526C2004B7E96 /* ExtensiveCellTests.m */; };
 		5A85D185182529E2004B7E96 /* ExtensiveCellContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A85D184182529E2004B7E96 /* ExtensiveCellContainer.xib */; };
-		5A85D18718252A30004B7E96 /* ExtensiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A85D18618252A30004B7E96 /* ExtensiveCell.xib */; };
 		5A85D18A18252AA0004B7E96 /* ExtensiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A85D18918252AA0004B7E96 /* ExtensiveCell.m */; };
 		5A85D18D18253319004B7E96 /* ExtensiveCellContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A85D18C18253319004B7E96 /* ExtensiveCellContainer.m */; };
 /* End PBXBuildFile section */
@@ -38,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A44C89C1825AA4C00A06444 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		5A44C89D1825AA4C00A06444 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		5A85D14C182526C2004B7E96 /* ExtensiveCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExtensiveCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A85D14F182526C2004B7E96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A85D151182526C2004B7E96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,7 +60,6 @@
 		5A85D178182526C2004B7E96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A85D17A182526C2004B7E96 /* ExtensiveCellTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensiveCellTests.m; sourceTree = "<group>"; };
 		5A85D184182529E2004B7E96 /* ExtensiveCellContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtensiveCellContainer.xib; sourceTree = "<group>"; };
-		5A85D18618252A30004B7E96 /* ExtensiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtensiveCell.xib; sourceTree = "<group>"; };
 		5A85D18818252AA0004B7E96 /* ExtensiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensiveCell.h; sourceTree = "<group>"; };
 		5A85D18918252AA0004B7E96 /* ExtensiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensiveCell.m; sourceTree = "<group>"; };
 		5A85D18B18253319004B7E96 /* ExtensiveCellContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensiveCellContainer.h; sourceTree = "<group>"; };
@@ -123,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				5A85D161182526C2004B7E96 /* Main.storyboard */,
+				5A44C89C1825AA4C00A06444 /* DemoViewController.h */,
+				5A44C89D1825AA4C00A06444 /* DemoViewController.m */,
 				5A85D164182526C2004B7E96 /* ECViewController.h */,
 				5A85D165182526C2004B7E96 /* ECViewController.m */,
 				5A85D18E18253395004B7E96 /* ExtensiveCellContainer */,
@@ -179,7 +182,6 @@
 			children = (
 				5A85D18818252AA0004B7E96 /* ExtensiveCell.h */,
 				5A85D18918252AA0004B7E96 /* ExtensiveCell.m */,
-				5A85D18618252A30004B7E96 /* ExtensiveCell.xib */,
 			);
 			name = ExtensiveCell;
 			sourceTree = "<group>";
@@ -263,7 +265,6 @@
 			files = (
 				5A85D168182526C2004B7E96 /* Images.xcassets in Resources */,
 				5A85D185182529E2004B7E96 /* ExtensiveCellContainer.xib in Resources */,
-				5A85D18718252A30004B7E96 /* ExtensiveCell.xib in Resources */,
 				5A85D15A182526C2004B7E96 /* InfoPlist.strings in Resources */,
 				5A85D163182526C2004B7E96 /* Main.storyboard in Resources */,
 			);
@@ -287,6 +288,7 @@
 				5A85D166182526C2004B7E96 /* ECViewController.m in Sources */,
 				5A85D18D18253319004B7E96 /* ExtensiveCellContainer.m in Sources */,
 				5A85D18A18252AA0004B7E96 /* ExtensiveCell.m in Sources */,
+				5A44C89E1825AA4C00A06444 /* DemoViewController.m in Sources */,
 				5A85D160182526C2004B7E96 /* ECAppDelegate.m in Sources */,
 				5A85D15C182526C2004B7E96 /* main.m in Sources */,
 			);

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ExtensiveCell.h"
 
-@interface ECViewController : UIViewController
+@interface ECViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ECTableViewDelegate>
+
+@property (nonatomic) NSInteger numberOfRow;
+@property (strong, nonatomic) NSArray *data;
 
 @end

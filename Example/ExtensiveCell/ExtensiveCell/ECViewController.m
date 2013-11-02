@@ -100,6 +100,10 @@
     if (self.selectedRowIndexPath)
     {
         [self removeCellBelowIndexPath:self.selectedRowIndexPath];
+        if (indexPath.row > self.selectedRowIndexPath.row)
+        {
+            indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];
+        }
     }
     
     if (indexPath) {
@@ -119,7 +123,7 @@
     NSArray *pathsArray = @[indexPath];
     [self.tableView beginUpdates];
     self.numberOfRow = self.numberOfRow + 1;
-    [self.tableView insertRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView insertRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
 }
 
@@ -129,7 +133,7 @@
     NSArray *pathsArray = @[indexPath];
     [self.tableView beginUpdates];
     self.numberOfRow = self.numberOfRow - 1;
-    [self.tableView deleteRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView deleteRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
 }
 

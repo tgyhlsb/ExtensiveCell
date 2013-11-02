@@ -41,9 +41,34 @@
 
 - (UIView *)viewForContainerAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 200, 88)];
-    dropDownView.backgroundColor = [UIColor redColor];
-    return dropDownView;
+    switch (indexPath.row) {
+        case 1:
+        {
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 200, 88)];
+            dropDownView.backgroundColor = [UIColor redColor];
+            return dropDownView;
+        }
+        case 2:
+        {
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 200, 88)];
+            dropDownView.backgroundColor = [UIColor blueColor];
+            return dropDownView;
+        }
+        case 3:
+        {
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 88)];
+            dropDownView.backgroundColor = [UIColor greenColor];
+            return dropDownView;
+        }
+        case 4:
+        {
+            UIView *dropDownView = [[UIDatePicker alloc] init];
+            return dropDownView;
+        }
+            
+        default:
+            return nil;
+    }
 }
 
 @end

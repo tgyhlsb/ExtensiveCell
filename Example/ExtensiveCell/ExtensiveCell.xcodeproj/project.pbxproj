@@ -112,12 +112,9 @@
 		5A85D155182526C2004B7E96 /* ExtensiveCell */ = {
 			isa = PBXGroup;
 			children = (
-				5A85D15E182526C2004B7E96 /* ECAppDelegate.h */,
-				5A85D15F182526C2004B7E96 /* ECAppDelegate.m */,
 				5A85D161182526C2004B7E96 /* Main.storyboard */,
 				5A85D164182526C2004B7E96 /* ECViewController.h */,
 				5A85D165182526C2004B7E96 /* ECViewController.m */,
-				5A85D167182526C2004B7E96 /* Images.xcassets */,
 				5A85D156182526C2004B7E96 /* Supporting Files */,
 			);
 			path = ExtensiveCell;
@@ -126,6 +123,9 @@
 		5A85D156182526C2004B7E96 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5A85D15E182526C2004B7E96 /* ECAppDelegate.h */,
+				5A85D15F182526C2004B7E96 /* ECAppDelegate.m */,
+				5A85D167182526C2004B7E96 /* Images.xcassets */,
 				5A85D157182526C2004B7E96 /* ExtensiveCell-Info.plist */,
 				5A85D158182526C2004B7E96 /* InfoPlist.strings */,
 				5A85D15B182526C2004B7E96 /* main.m */,
@@ -382,6 +382,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ExtensiveCell/ExtensiveCell-Prefix.pch";
 				INFOPLIST_FILE = "ExtensiveCell/ExtensiveCell-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -395,6 +396,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ExtensiveCell/ExtensiveCell-Prefix.pch";
 				INFOPLIST_FILE = "ExtensiveCell/ExtensiveCell-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

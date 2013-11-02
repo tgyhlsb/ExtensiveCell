@@ -1,4 +1,4 @@
-EtensiveCell
+ExtensiveCell
 ============
 
 iOS TableViewCell component

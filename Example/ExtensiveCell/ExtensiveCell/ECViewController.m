@@ -108,8 +108,6 @@
 {
     NSLog(@"Should extend cell at indexPath : %@", indexPath);
     
-    
-    
     if (indexPath) {
         
         if (self.selectedRowIndexPath)
@@ -121,7 +119,9 @@
                 [self removeCellBelowIndexPath:tempIndexPath];
             } else {
                 [self removeCellBelowIndexPath:self.selectedRowIndexPath];
-                indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];
+                if (indexPath.row > self.selectedRowIndexPath.row) {
+                    indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];
+                }
                 self.selectedRowIndexPath = indexPath;
                 [self insertCellBelowIndexPath:indexPath];
             }

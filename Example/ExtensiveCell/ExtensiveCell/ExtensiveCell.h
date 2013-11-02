@@ -9,20 +9,17 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol ECTableViewDelegate;
+@protocol ExtensiveCellDelegate;
 
 @interface ExtensiveCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UITableViewController<ECTableViewDelegate>  *tableViewDelegate;
-
-+ (NSString *)reusableIdentifier;
-+ (void)registerNibToTableView:(UITableView *)tableView;
+@property (nonatomic, weak) IBOutlet UITableViewController<ExtensiveCellDelegate>  *tableViewDelegate;
 
 - (void)initializeWithTableViewController:(UITableViewController *)tableViewController;
 
 @end
 
-@protocol ECTableViewDelegate <NSObject>
+@protocol ExtensiveCellDelegate <NSObject>
 
 @optional
 - (void)shouldExtendCellAtIndexPath:(NSIndexPath *)indexPath;

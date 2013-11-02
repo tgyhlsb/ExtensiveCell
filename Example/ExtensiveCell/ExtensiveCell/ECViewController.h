@@ -11,10 +11,25 @@
 
 #define MAIN_CELLS_HEIGHT 44
 
-@interface ECViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ECTableViewDelegate>
+@protocol ECTableViewDataSource <NSObject>
 
-@property (nonatomic) NSInteger numberOfRow;
+- (ExtensiveCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath;
+
+- (CGFloat)heightForExtensiveCellAtIndexPath:(NSIndexPath *)indexPath;
+
+- (NSInteger)numberOfSections;
+
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
+
+@end
+
+@interface ECViewController : UIViewController <ECTableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIView *detailView;
 
 
+
+
 @end
+

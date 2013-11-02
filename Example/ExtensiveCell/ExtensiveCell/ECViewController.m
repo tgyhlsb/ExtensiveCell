@@ -22,7 +22,6 @@
     [super viewDidLoad];
     [ExtensiveCellContainer registerNibToTableView:self.tableView];
     
-    self.detailView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 88)];
 }
 
 #pragma mark Selection mecanism
@@ -74,8 +73,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self isExtendedCellIndexPath:indexPath] && self.detailView) {
-        return self.detailView.frame.size.height;
+    UIView *contentView = [self viewForContainerAtIndexPath:indexPath];
+    if ([self isExtendedCellIndexPath:indexPath] && contentView) {
+        return contentView.frame.origin.y + contentView.frame.size.height;
     } else {
         return [self heightForExtensiveCellAtIndexPath:indexPath];
     }
@@ -88,6 +88,7 @@
     {
         NSString *identifier = [ExtensiveCellContainer reusableIdentifier];
         ExtensiveCellContainer *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        [cell addContentView:[self viewForContainerAtIndexPath:indexPath]];
         return cell;
     } else {
         ExtensiveCell *cell = [self extensiveCellForRowIndexPath:indexPath];
@@ -164,6 +165,11 @@
 - (NSInteger)numberOfRowsInSection:(NSInteger)section
 {
     return 0;
+}
+
+- (UIView *)viewForContainerAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
 }
 
 

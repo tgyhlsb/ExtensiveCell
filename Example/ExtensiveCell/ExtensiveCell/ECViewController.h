@@ -21,12 +21,13 @@
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 
+- (UIView *)viewForContainerAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @interface ECViewController : UIViewController <ECTableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) UIView *detailView;
 
 
 

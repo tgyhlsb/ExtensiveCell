@@ -10,6 +10,14 @@
 
 #define REUSABLE_IDENTIFIER @"ExtensiveCellContainer"
 
+@interface ExtensiveCellContainer()
+
+@property (weak, nonatomic) IBOutlet UILabel *defaultLabel;
+
+
+@end
+
+
 @implementation ExtensiveCellContainer
 
 + (void)registerNibToTableView:(UITableView *)tableView
@@ -21,6 +29,13 @@
 + (NSString *)reusableIdentifier
 {
     return REUSABLE_IDENTIFIER;
+}
+
+- (void)addContentView:(UIView *)contentView
+{
+    self.defaultLabel.hidden = (contentView != nil);
+    
+    [self.contentView addSubview:contentView];
 }
 
 

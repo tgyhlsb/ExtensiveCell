@@ -3,4 +3,4 @@ ExtensiveCell
 
 iOS TableViewCell component
 
-![alt tag](https://github.com/Tgy31/RatingView/blob/master/overview.png?raw=true)
+![alt tag](https://dl-web.dropbox.com/get/demo.gif?w=AAAh1WvPfjTc08jZka1lxxiI-sS3mYLY9sbq3htCO2tchQ)

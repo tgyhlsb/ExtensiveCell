@@ -40,7 +40,7 @@
 
 - (NSInteger)numberOfSections
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section

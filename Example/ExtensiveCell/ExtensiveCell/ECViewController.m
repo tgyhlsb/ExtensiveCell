@@ -59,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.selectedRowIndexPath)
+    if (self.selectedRowIndexPath && self.selectedRowIndexPath.section == section)
     {
         return [self numberOfRowsInSection:section] + 1;
     }
@@ -68,7 +68,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [self numberOfSections];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,11 +120,12 @@
                 self.selectedRowIndexPath = nil;
                 [self removeCellBelowIndexPath:tempIndexPath];
             } else {
-                [self removeCellBelowIndexPath:self.selectedRowIndexPath];
+                NSIndexPath *tempIndexPath = self.selectedRowIndexPath;
                 if (indexPath.row > self.selectedRowIndexPath.row) {
                     indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];
                 }
                 self.selectedRowIndexPath = indexPath;
+                [self removeCellBelowIndexPath:tempIndexPath];
                 [self insertCellBelowIndexPath:indexPath];
             }
         } else {

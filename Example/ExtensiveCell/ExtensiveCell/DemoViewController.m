@@ -9,7 +9,7 @@
 #import "DemoViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface DemoViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DemoViewController ()
 
 @property (strong, nonatomic) MKMapView *mapView;
 

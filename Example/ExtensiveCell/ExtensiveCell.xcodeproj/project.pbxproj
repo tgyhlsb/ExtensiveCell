@@ -38,8 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A44C89C1825AA4C00A06444 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		5A44C89D1825AA4C00A06444 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		5A44C89C1825AA4C00A06444 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = ExtensiveCell/DemoViewController.h; sourceTree = "<group>"; };
+		5A44C89D1825AA4C00A06444 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = ExtensiveCell/DemoViewController.m; sourceTree = "<group>"; };
 		5A85D14C182526C2004B7E96 /* ExtensiveCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExtensiveCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A85D14F182526C2004B7E96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A85D151182526C2004B7E96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,6 +93,9 @@
 		5A85D143182526C2004B7E96 = {
 			isa = PBXGroup;
 			children = (
+				5A85D161182526C2004B7E96 /* Main.storyboard */,
+				5A44C89C1825AA4C00A06444 /* DemoViewController.h */,
+				5A44C89D1825AA4C00A06444 /* DemoViewController.m */,
 				5A85D155182526C2004B7E96 /* ExtensiveCell */,
 				5A85D174182526C2004B7E96 /* ExtensiveCellTests */,
 				5A85D14E182526C2004B7E96 /* Frameworks */,
@@ -123,9 +126,6 @@
 		5A85D155182526C2004B7E96 /* ExtensiveCell */ = {
 			isa = PBXGroup;
 			children = (
-				5A85D161182526C2004B7E96 /* Main.storyboard */,
-				5A44C89C1825AA4C00A06444 /* DemoViewController.h */,
-				5A44C89D1825AA4C00A06444 /* DemoViewController.m */,
 				5A85D164182526C2004B7E96 /* ECViewController.h */,
 				5A85D165182526C2004B7E96 /* ECViewController.m */,
 				5A85D18E18253395004B7E96 /* ExtensiveCellContainer */,
@@ -327,6 +327,7 @@
 				5A85D162182526C2004B7E96 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ExtensiveCell;
 			sourceTree = "<group>";
 		};
 		5A85D177182526C2004B7E96 /* InfoPlist.strings */ = {

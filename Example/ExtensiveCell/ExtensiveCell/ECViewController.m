@@ -100,6 +100,11 @@
     }
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return @"Footer";
+}
+
 #pragma mark ExtensiveCellDelegate
 
 - (void)shouldExtendCellAtIndexPath:(NSIndexPath *)indexPath
@@ -135,7 +140,7 @@
 {
     indexPath = [NSIndexPath indexPathForRow:(indexPath.row+1) inSection:indexPath.section];
     NSArray *pathsArray = @[indexPath];
-    [self.tableView insertRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (void)removeCellBelowIndexPath:(NSIndexPath *)indexPath

@@ -113,7 +113,8 @@
         case 3:
         {
             // Will instantiate the View on every opening/closing
-            // The frame origin set to (10, 10) will create a margin effect of 10 pixels
+            // The frame origin set to (10, 10) will create a margin-top and margin-left effect of 10 pixels.
+            // Width 300 will do the rest (the full width of the screen is 320 = 300 + 10 + 10).
             UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 300, 88)];
             dropDownView.backgroundColor = [UIColor redColor];
             return dropDownView;
@@ -130,5 +131,6 @@
             return nil;
     }
 }
+
 
 @end

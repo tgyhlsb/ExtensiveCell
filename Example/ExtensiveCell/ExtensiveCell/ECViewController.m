@@ -59,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.selectedRowIndexPath)
+    if (self.selectedRowIndexPath && self.selectedRowIndexPath.section == section)
     {
         return [self numberOfRowsInSection:section] + 1;
     }
@@ -68,7 +68,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [self numberOfSections];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,6 +100,11 @@
     }
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return @"Footer";
+}
+
 #pragma mark ExtensiveCellDelegate
 
 - (void)shouldExtendCellAtIndexPath:(NSIndexPath *)indexPath
@@ -115,11 +120,12 @@
                 self.selectedRowIndexPath = nil;
                 [self removeCellBelowIndexPath:tempIndexPath];
             } else {
-                [self removeCellBelowIndexPath:self.selectedRowIndexPath];
+                NSIndexPath *tempIndexPath = self.selectedRowIndexPath;
                 if (indexPath.row > self.selectedRowIndexPath.row) {
                     indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];
                 }
                 self.selectedRowIndexPath = indexPath;
+                [self removeCellBelowIndexPath:tempIndexPath];
                 [self insertCellBelowIndexPath:indexPath];
             }
         } else {
@@ -135,7 +141,7 @@
 {
     indexPath = [NSIndexPath indexPathForRow:(indexPath.row+1) inSection:indexPath.section];
     NSArray *pathsArray = @[indexPath];
-    [self.tableView insertRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (void)removeCellBelowIndexPath:(NSIndexPath *)indexPath

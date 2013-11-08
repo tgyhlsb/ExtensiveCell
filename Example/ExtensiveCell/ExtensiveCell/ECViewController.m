@@ -100,11 +100,6 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-    return @"Footer";
-}
-
 #pragma mark ExtensiveCellDelegate
 
 - (void)shouldExtendCellAtIndexPath:(NSIndexPath *)indexPath

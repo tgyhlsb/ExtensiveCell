@@ -25,7 +25,7 @@
  ECViewController manages the indexPath when you open/close a row. ECViewController will call viewForContainerAtIndexPath: to get the container view.
  
  *****/
-- (ExtensiveCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath;
 
 
 
@@ -70,6 +70,9 @@
  
  *****/
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
+
+
+- (void)extendCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

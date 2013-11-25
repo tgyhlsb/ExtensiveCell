@@ -91,11 +91,7 @@
         [cell addContentView:[self viewForContainerAtIndexPath:indexPath]];
         return cell;
     } else {
-        ExtensiveCell *cell = [self extensiveCellForRowIndexPath:indexPath];
-        if ([cell respondsToSelector:@selector(initializeWithTableViewController:)])
-        {
-            [cell initializeWithTableViewController:(UITableViewController *)self];
-        }
+        UITableViewCell *cell = [self extensiveCellForRowIndexPath:indexPath];
         return cell;
     }
 }
@@ -103,6 +99,11 @@
 #pragma mark ExtensiveCellDelegate
 
 - (void)shouldExtendCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self extendCellAtIndexPath:indexPath];
+}
+
+- (void)extendCellAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath) {
         [self.tableView beginUpdates];
@@ -148,7 +149,7 @@
 
 #pragma mark ECTableViewDataSource default
 
-- (ExtensiveCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
 }

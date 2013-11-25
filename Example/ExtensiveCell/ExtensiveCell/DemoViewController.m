@@ -9,7 +9,7 @@
 #import "DemoViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface DemoViewController ()
+@interface DemoViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) MKMapView *mapView;
 
@@ -38,10 +38,10 @@
  
 *****/
 
-- (ExtensiveCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = @"demoCell";
-    ExtensiveCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     return cell;
 }
@@ -130,6 +130,13 @@
         default:
             return nil;
     }
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [self extendCellAtIndexPath:indexPath];
 }
 
 

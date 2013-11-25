@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ExtensiveCell.h"
 
 #define MAIN_CELLS_HEIGHT 44
 

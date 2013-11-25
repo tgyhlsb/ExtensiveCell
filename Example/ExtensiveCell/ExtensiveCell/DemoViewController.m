@@ -136,7 +136,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [self extendCellAtIndexPath:indexPath];
+    [self extendCellAtIndexPath:indexPath];
 }
 
 

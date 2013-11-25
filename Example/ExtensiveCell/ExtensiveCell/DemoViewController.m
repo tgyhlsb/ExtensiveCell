@@ -9,7 +9,7 @@
 #import "DemoViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface DemoViewController ()
+@interface DemoViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) MKMapView *mapView;
 
@@ -38,10 +38,10 @@
  
 *****/
 
-- (ExtensiveCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = @"demoCell";
-    ExtensiveCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     return cell;
 }
@@ -66,7 +66,7 @@
 
 /*****
  
- Similar to numberOfSectionsInTableView: frm UITableViewDataSource.
+ Similar to numberOfSectionsInTableView: from UITableViewDataSource.
  
 *****/
 
@@ -76,7 +76,7 @@
 }
 /*****
  
- Similar to tableview:numberOfRowsInSection: frm UITableViewDataSource.
+ Similar to tableview:numberOfRowsInSection: from UITableViewDataSource.
  
  Do not consider the container (open or closed) when calculating the number of rows.
  
@@ -89,7 +89,7 @@
 
 /*****
  
- Asks the data source for a view to fill in a the container when selecting a row.
+ Asks the data source for a view to display in the container when selecting a row.
  You should fetch a previously created view object for performance reasons.
  
  The ECViewcontroller tableview only has one container and reuses it.
@@ -130,6 +130,23 @@
         default:
             return nil;
     }
+}
+
+#pragma mark UITableViewDelegate
+
+/*****
+ 
+ You still can implement UITableViewDelegate.
+ 
+ Here we open a cell on select.
+ 
+ Can't handle multiple selection yet.
+ 
+*****/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self extendCellAtIndexPath:indexPath];
 }
 
 

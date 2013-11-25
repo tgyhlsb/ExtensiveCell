@@ -9,7 +9,7 @@
 #import "ECViewController.h"
 #import "ExtensiveCellContainer.h"
 
-@interface ECViewController () <UITableViewDataSource, ExtensiveCellDelegate>
+@interface ECViewController () <UITableViewDataSource>
 
 @property (strong, nonatomic) NSIndexPath *selectedRowIndexPath;
 
@@ -55,54 +55,7 @@
     return NO;
 }
 
-#pragma mark UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (self.selectedRowIndexPath && self.selectedRowIndexPath.section == section)
-    {
-        return [self numberOfRowsInSection:section] + 1;
-    }
-    return [self numberOfRowsInSection:section];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [self numberOfSections];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIView *contentView = [self viewForContainerAtIndexPath:indexPath];
-    if ([self isExtendedCellIndexPath:indexPath] && contentView) {
-        return 2*contentView.frame.origin.y + contentView.frame.size.height;
-    } else {
-        return [self heightForExtensiveCellAtIndexPath:indexPath];
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if ([self isExtendedCellIndexPath:indexPath])
-    {
-        NSString *identifier = [ExtensiveCellContainer reusableIdentifier];
-        ExtensiveCellContainer *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        [cell addContentView:[self viewForContainerAtIndexPath:indexPath]];
-        return cell;
-    } else {
-        ExtensiveCell *cell = [self extensiveCellForRowIndexPath:indexPath];
-        if ([cell respondsToSelector:@selector(initializeWithTableViewController:)])
-        {
-            [cell initializeWithTableViewController:(UITableViewController *)self];
-        }
-        return cell;
-    }
-}
-
-#pragma mark ExtensiveCellDelegate
-
-- (void)shouldExtendCellAtIndexPath:(NSIndexPath *)indexPath
+- (void)extendCellAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath) {
         [self.tableView beginUpdates];
@@ -146,9 +99,50 @@
     [self.tableView deleteRowsAtIndexPaths:pathsArray withRowAnimation:UITableViewRowAnimationTop];
 }
 
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (self.selectedRowIndexPath && self.selectedRowIndexPath.section == section)
+    {
+        return [self numberOfRowsInSection:section] + 1;
+    }
+    return [self numberOfRowsInSection:section];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self numberOfSections];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIView *contentView = [self viewForContainerAtIndexPath:indexPath];
+    if ([self isExtendedCellIndexPath:indexPath] && contentView) {
+        return 2*contentView.frame.origin.y + contentView.frame.size.height;
+    } else {
+        return [self heightForExtensiveCellAtIndexPath:indexPath];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ([self isExtendedCellIndexPath:indexPath])
+    {
+        NSString *identifier = [ExtensiveCellContainer reusableIdentifier];
+        ExtensiveCellContainer *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        [cell addContentView:[self viewForContainerAtIndexPath:indexPath]];
+        return cell;
+    } else {
+        UITableViewCell *cell = [self extensiveCellForRowIndexPath:indexPath];
+        return cell;
+    }
+}
+
 #pragma mark ECTableViewDataSource default
 
-- (ExtensiveCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
 }

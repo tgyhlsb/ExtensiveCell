@@ -71,6 +71,16 @@
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 
 
+/*****
+ 
+ Extends the cell at given indexPath. If an other cell is already extended, it closes.
+ 
+ Only one cell can be extended at once. 
+ 
+*****/
+
+
+
 - (void)extendCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

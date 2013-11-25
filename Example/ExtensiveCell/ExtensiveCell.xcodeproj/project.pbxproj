@@ -24,7 +24,6 @@
 		5A9DF66A182D6C31008C37C0 /* ECViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DF669182D6C31008C37C0 /* ECViewController.m */; };
 		5A9DF66E182D6C45008C37C0 /* ExtensiveCellContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DF66C182D6C45008C37C0 /* ExtensiveCellContainer.m */; };
 		5A9DF66F182D6C45008C37C0 /* ExtensiveCellContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9DF66D182D6C45008C37C0 /* ExtensiveCellContainer.xib */; };
-		5A9DF672182D6C57008C37C0 /* ExtensiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DF671182D6C57008C37C0 /* ExtensiveCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +61,6 @@
 		5A9DF66B182D6C45008C37C0 /* ExtensiveCellContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtensiveCellContainer.h; path = ../../../ExtensiveCell/ExtensiveCellContainer.h; sourceTree = "<group>"; };
 		5A9DF66C182D6C45008C37C0 /* ExtensiveCellContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtensiveCellContainer.m; path = ../../../ExtensiveCell/ExtensiveCellContainer.m; sourceTree = "<group>"; };
 		5A9DF66D182D6C45008C37C0 /* ExtensiveCellContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExtensiveCellContainer.xib; path = ../../../ExtensiveCell/ExtensiveCellContainer.xib; sourceTree = "<group>"; };
-		5A9DF670182D6C57008C37C0 /* ExtensiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtensiveCell.h; path = ../../../ExtensiveCell/ExtensiveCell.h; sourceTree = "<group>"; };
-		5A9DF671182D6C57008C37C0 /* ExtensiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtensiveCell.m; path = ../../../ExtensiveCell/ExtensiveCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +126,6 @@
 				5A9DF668182D6C31008C37C0 /* ECViewController.h */,
 				5A9DF669182D6C31008C37C0 /* ECViewController.m */,
 				5A85D18E18253395004B7E96 /* ExtensiveCellContainer */,
-				5A85D18F182533A6004B7E96 /* ExtensiveCell */,
 				5A85D156182526C2004B7E96 /* Supporting Files */,
 			);
 			path = ExtensiveCell;
@@ -175,15 +171,6 @@
 				5A9DF66D182D6C45008C37C0 /* ExtensiveCellContainer.xib */,
 			);
 			name = ExtensiveCellContainer;
-			sourceTree = "<group>";
-		};
-		5A85D18F182533A6004B7E96 /* ExtensiveCell */ = {
-			isa = PBXGroup;
-			children = (
-				5A9DF670182D6C57008C37C0 /* ExtensiveCell.h */,
-				5A9DF671182D6C57008C37C0 /* ExtensiveCell.m */,
-			);
-			name = ExtensiveCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +274,6 @@
 			files = (
 				5A44C89E1825AA4C00A06444 /* DemoViewController.m in Sources */,
 				5A85D160182526C2004B7E96 /* ECAppDelegate.m in Sources */,
-				5A9DF672182D6C57008C37C0 /* ExtensiveCell.m in Sources */,
 				5A85D15C182526C2004B7E96 /* main.m in Sources */,
 				5A9DF66A182D6C31008C37C0 /* ECViewController.m in Sources */,
 				5A9DF66E182D6C45008C37C0 /* ExtensiveCellContainer.m in Sources */,

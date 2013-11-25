@@ -134,9 +134,19 @@
 
 #pragma mark UITableViewDelegate
 
+/*****
+ 
+ You still can implement UITableViewDelegate.
+ 
+ Here we open a cell on select.
+ 
+ Can't handle multiple selection yet.
+ 
+*****/
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [self extendCellAtIndexPath:indexPath];
+    [self extendCellAtIndexPath:indexPath];
 }
 
 

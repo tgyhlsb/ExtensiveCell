@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ExtensiveCell.h"
 
 #define MAIN_CELLS_HEIGHT 44
 
@@ -70,6 +69,16 @@
  
  *****/
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
+
+
+/*****
+ 
+ Extends the cell at given indexPath. If an other cell is already extended, it closes.
+ 
+ Only one cell can be extended at once. 
+ 
+*****/
+
 
 
 - (void)extendCellAtIndexPath:(NSIndexPath *)indexPath;

@@ -17,9 +17,18 @@
 
 @implementation DemoViewController
 
+- (NSInteger)ifIOS6FixWidth:(NSInteger)width {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0) {
+        return width-20;
+    }
+    else
+        return width;
+}
+
+
 - (MKMapView *)mapView
 {
-    if (!_mapView) _mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 128)];
+    if (!_mapView) _mapView = [[MKMapView alloc] initWithFrame:CGRectMake (0, 0, [self ifIOS6FixWidth:320], 128)];
     return _mapView;
 }
 
@@ -102,7 +111,16 @@
         case 1:
         {
             // Will instantiate the DatePickerView on every opening/closing
-            UIView *dropDownView = [[UIDatePicker alloc] init];
+            UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+            
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0) {
+                CGRect frame = datePicker.frame;
+                frame.size.width -= 20;
+                [datePicker setFrame: frame];
+            }
+            
+            UIView *dropDownView = datePicker;
+            
             return dropDownView;
         }
         case 2:
@@ -115,14 +133,14 @@
             // Will instantiate the View on every opening/closing
             // The frame origin set to (10, 10) will create a margin-top and margin-left effect of 10 pixels.
             // Width 300 will do the rest (the full width of the screen is 320 = 300 + 10 + 10).
-            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 300, 88)];
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [self ifIOS6FixWidth:300], 88)];
             dropDownView.backgroundColor = [UIColor redColor];
             return dropDownView;
         }
         case 4:
         {
             // Will instantiate the View on every opening/closing
-            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 88)];
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [self ifIOS6FixWidth:320], 88)];
             dropDownView.backgroundColor = [UIColor blueColor];
             return dropDownView;
         }

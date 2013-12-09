@@ -67,7 +67,10 @@
                 NSIndexPath *tempIndexPath = self.selectedRowIndexPath;
                 self.selectedRowIndexPath = nil;
                 [self removeCellBelowIndexPath:tempIndexPath];
-            } else {
+            }
+            else if ([self isExtendedCellIndexPath:indexPath]);
+            else
+            {
                 NSIndexPath *tempIndexPath = self.selectedRowIndexPath;
                 if (indexPath.row > self.selectedRowIndexPath.row && indexPath.section == self.selectedRowIndexPath.section) {
                     indexPath = [NSIndexPath indexPathForRow:(indexPath.row-1) inSection:indexPath.section];

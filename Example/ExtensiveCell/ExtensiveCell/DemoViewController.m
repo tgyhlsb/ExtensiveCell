@@ -17,22 +17,12 @@
 
 @implementation DemoViewController
 
-- (NSInteger)ifIOS6FixWidth:(NSInteger)width {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0) {
-        return width-20;
-    }
-    else
-        return width;
-}
-
-
-- (MKMapView *)mapView
-{
-    if (!_mapView) _mapView = [[MKMapView alloc] initWithFrame:CGRectMake (0, 0, [self ifIOS6FixWidth:320], 128)];
+- (MKMapView *)mapView {
+    if (!_mapView) _mapView = [[MKMapView alloc] initWithFrame:CGRectMake (0, 0, 320, 128)];
     return _mapView;
 }
 
-#pragma mark ECTableViewDataSource
+#pragma mark - ECTableViewDataSource
 
 /*****
  
@@ -47,15 +37,12 @@
  
 *****/
 
-- (UITableViewCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)extensiveCellForRowIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = @"demoCell";
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     return cell;
 }
-
-
 
 /*****
  
@@ -68,8 +55,7 @@
  
 *****/
 
-- (CGFloat)heightForExtensiveCellAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)heightForExtensiveCellAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
 
@@ -79,10 +65,10 @@
  
 *****/
 
-- (NSInteger)numberOfSections
-{
-    return 2;
+- (NSInteger)numberOfSections {
+    return 1;
 }
+
 /*****
  
  Similar to tableview:numberOfRowsInSection: from UITableViewDataSource.
@@ -91,9 +77,8 @@
  
 *****/
 
-- (NSInteger)numberOfRowsInSection:(NSInteger)section
-{
-    return 5;
+- (NSInteger)numberOfRowsInSection:(NSInteger)section {
+    return 16;
 }
 
 /*****
@@ -105,43 +90,44 @@
  
 *****/
 
-- (UIView *)viewForContainerAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UIView *)viewForContainerAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 1:
-        {
+        case 1: {
             // Will instantiate the DatePickerView on every opening/closing
             UIDatePicker *datePicker = [[UIDatePicker alloc] init];
-            
-            if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0) {
-                CGRect frame = datePicker.frame;
-                frame.size.width -= 20;
-                [datePicker setFrame: frame];
-            }
-            
             UIView *dropDownView = datePicker;
             
             return dropDownView;
         }
-        case 2:
-        {
+            
+        case 2: {
             // Will instantiate the MapView once. Best way for better performances.
+
             return self.mapView;
         }
-        case 3:
-        {
+            
+        case 3: {
             // Will instantiate the View on every opening/closing
             // The frame origin set to (10, 10) will create a margin-top and margin-left effect of 10 pixels.
             // Width 300 will do the rest (the full width of the screen is 320 = 300 + 10 + 10).
-            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [self ifIOS6FixWidth:300], 88)];
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 300, 88)];
             dropDownView.backgroundColor = [UIColor redColor];
+
             return dropDownView;
         }
-        case 4:
-        {
+            
+        case 4: {
             // Will instantiate the View on every opening/closing
-            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [self ifIOS6FixWidth:320], 88)];
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 88)];
             dropDownView.backgroundColor = [UIColor blueColor];
+
+            return dropDownView;
+        }
+            
+        case 5: {
+            UIView *dropDownView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.tableView.bounds.size.height - ( 2 * [self heightForExtensiveCellAtIndexPath:indexPath]))];
+            dropDownView.backgroundColor = [UIColor yellowColor];
+
             return dropDownView;
         }
             
@@ -162,10 +148,8 @@
  
 *****/
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self extendCellAtIndexPath:indexPath];
 }
-
 
 @end

@@ -129,19 +129,31 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath
 {
-    
-    if ([self isExtendedCellIndexPath:indexPath])
-    {
-        NSString *identifier = [ExtensiveCellContainer reusableIdentifier];
-        ExtensiveCellContainer *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        [cell addContentView:[self viewForContainerAtIndexPath:indexPath]];
-        return cell;
-    } else {
-        UITableViewCell *cell = [self extensiveCellForRowIndexPath:indexPath];
-        return cell;
-    }
+	if ([self isExtendedCellIndexPath:indexPath])
+	{
+		NSString				*identifier = [ExtensiveCellContainer reusableIdentifier];
+		ExtensiveCellContainer	*cell		= [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+		[cell addContentView:[self viewForContainerAtIndexPath:indexPath]];
+		return cell;
+	}
+	else
+	{
+        UITableViewCell *cell = nil;
+        
+        if (self.selectedRowIndexPath)
+        {
+            NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:(indexPath.row - 1) inSection:indexPath.section];
+            cell = [self extensiveCellForRowIndexPath:tmpIndexPath];
+        }
+        else
+        {
+            cell = [self extensiveCellForRowIndexPath:indexPath];
+        }
+		
+		return cell;
+	}
 }
 
 #pragma mark ECTableViewDataSource default

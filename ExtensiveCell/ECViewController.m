@@ -144,8 +144,14 @@
         
         if (self.selectedRowIndexPath)
         {
-            NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:(indexPath.row - 1) inSection:indexPath.section];
-            cell = [self extensiveCellForRowIndexPath:tmpIndexPath];
+            if ((indexPath.section >= self.selectedRowIndexPath.section) && (indexPath.row > self.selectedRowIndexPath.row)) {
+                NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:(indexPath.row - 1) inSection:indexPath.section];
+                cell = [self extensiveCellForRowIndexPath:tmpIndexPath];
+            }
+            else
+            {
+                cell = [self extensiveCellForRowIndexPath:indexPath];
+            }
         }
         else
         {
